@@ -1679,5 +1679,5 @@ except KeyboardInterrupt:
         exit()
     else:
         print("\nSTOPPING...")
-        sets.stop()
+        #sets.stop()
         exit()
