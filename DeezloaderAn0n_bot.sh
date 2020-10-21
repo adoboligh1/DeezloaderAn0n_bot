@@ -12,7 +12,7 @@ case "$1" in
     else
 	echo "DeezloaderAn0n_bot started!"
   cd $path
-	./dwsongs-normal.py
+	sudo ./dwsongs-normal.py
     fi
 
     ;;
