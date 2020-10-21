@@ -258,14 +258,17 @@ def sendAudio(
                 duration = int(tag.info.length)
 
             if os.path.getsize(audio) < telegram_audio_api_limit:
-                print("First sendAudio")
-                file_id = bot.sendAudio(
-                    chat_id, open(audio, "rb"),
-                    thumb=open(image.url, "rb"),
-                    duration=duration,
-                    performer=tag['artist'][0],
-                    title=tag['title'][0]
-                )['audio']['file_id']
+                if server_mode == False:
+                    print("First sendAudio")
+                    file_id = bot.sendAudio(
+                        chat_id, open(audio, "rb"),
+                        thumb=open(image.url, "rb"),
+                        duration=duration,
+                        performer=tag['artist'][0],
+                        title=tag['title'][0]
+                    )['audio']['file_id']
+                else:
+                    sendMessage(chat_id, "Done!")
 
                 if not youtube:
                     quality = fast_split(audio)
@@ -282,7 +285,7 @@ def sendAudio(
             else:
                 sendMessage(chat_id, "Song too big :(")
         elif server_mode == False:
-            print("Sende Audio!")
+            print("Second sendAudio!")
             bot.sendAudio(chat_id, audio)
         else:
             sendMessage(chat_id, "Done!")
