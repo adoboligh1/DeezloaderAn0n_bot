@@ -1650,11 +1650,9 @@ try:
     print("Bot started")
 
     while True:
-        sleep(1)
+        sleep(5)
         path = os.statvfs("/")
         free_space = path.f_bavail * path.f_frsize
-        print (free_space)
-        print (limit)
 
         if (del1 <= del2 and is_audio == 0) or free_space <= limit:
             del1 = 0
