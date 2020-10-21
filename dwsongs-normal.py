@@ -373,7 +373,7 @@ def Link(link, chat_id, quality, message_id):
     global spo
     global del1
 
-    del1 += 1
+    #del1 += 1
     done = 0
     quali = quality.split("MP3_")[-1]
     link = link.split("?")[0]
@@ -1647,7 +1647,7 @@ try:
     print("Bot started")
 
     while True:
-        sleep(5)
+        sleep(1)
         path = os.statvfs("/")
         free_space = path.f_bavail * path.f_frsize
 
