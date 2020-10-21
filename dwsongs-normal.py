@@ -247,42 +247,41 @@ def sendAudio(
 ):
     sleep(default_time)
     try:
-        if server_mode == False:
-            if os.path.isfile(audio):
-                bot.sendChatAction(chat_id, "upload_audio")
+        if os.path.isfile(audio):
+            bot.sendChatAction(chat_id, "upload_audio")
 
-                try:
-                    tag = EasyID3(audio)
-                    duration = int(MP3(audio).info.length)
-                except ID3NoHeaderError:
-                    tag = FLAC(audio)
-                    duration = int(tag.info.length)
+            try:
+                tag = EasyID3(audio)
+                duration = int(MP3(audio).info.length)
+            except ID3NoHeaderError:
+                tag = FLAC(audio)
+                duration = int(tag.info.length)
 
-                if os.path.getsize(audio) < telegram_audio_api_limit:
-                    file_id = bot.sendAudio(
-                        chat_id, open(audio, "rb"),
-                        thumb=open(image.url, "rb"),
-                        duration=duration,
-                        performer=tag['artist'][0],
-                        title=tag['title'][0]
-                    )['audio']['file_id']
+            if os.path.getsize(audio) < telegram_audio_api_limit:
+                file_id = bot.sendAudio(
+                    chat_id, open(audio, "rb"),
+                    thumb=open(image.url, "rb"),
+                    duration=duration,
+                    performer=tag['artist'][0],
+                    title=tag['title'][0]
+                )['audio']['file_id']
 
-                    if not youtube:
-                        quality = fast_split(audio)
-                        link = "track/%s" % link.split("/")[-1]
+                if not youtube:
+                    quality = fast_split(audio)
+                    link = "track/%s" % link.split("/")[-1]
 
-                        write_db(
-                            insert_query
-                            % (
-                                link,
-                                file_id,
-                                quality
-                            )
+                    write_db(
+                        insert_query
+                        % (
+                            link,
+                            file_id,
+                            quality
                         )
-                else:
-                    sendMessage(chat_id, "Song too big :(")
+                    )
             else:
-                bot.sendAudio(chat_id, audio)
+                sendMessage(chat_id, "Song too big :(")
+        elif server_mode == False:
+            bot.sendAudio(chat_id, audio)
         else:
             sendMessage(chat_id, "Done!")
     except error.BadRequest:
@@ -1671,7 +1670,7 @@ except KeyboardInterrupt:
     if server_mode == False:
         print("\nSTOPPING...")
         sets.stop()
-       	os.rmdir(loc_dir)
+        os.rmdir(loc_dir)
         exit()
     else:
         print("\nSTOPPING...")
