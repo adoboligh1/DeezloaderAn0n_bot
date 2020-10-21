@@ -280,11 +280,8 @@ def sendAudio(
                     )
             else:
                 sendMessage(chat_id, "Song too big :(")
-        elif server_mode == False:
-            print("Second sendAudio!")
-            bot.sendAudio(chat_id, audio)
         else:
-            sendMessage(chat_id, "Done!")
+            bot.sendAudio(chat_id, audio)
     except error.BadRequest:
         sendMessage(
             chat_id, "Sorry the track %s doesn't seem readable on Deezer :(" % link)
