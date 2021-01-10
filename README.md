@@ -39,5 +39,5 @@ This project has been created for integrate deezloader library in a Telegram bot
 	group = https://t.me/DeezloaderRMX_group
 
 	[download_mode]
-	server_mode = False #could be set as True of False -> while True the audio will not be send and kept stored on the server
+	server_mode = True #could be set as True of False -> while True the audio will not be send and kept stored on the server
 	#False operation like normal
