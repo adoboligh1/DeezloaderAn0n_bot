@@ -351,21 +351,21 @@ def track(link, chat_id, quality):
 
             try:
                 if "spotify" in link:
-                    #mode = dwytsongs.download_trackspo
-                    os.system("cd /youtube && spotdl %s" % link)
-                    os.system('folder=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 youtube/*.mp3) && Songs/"$folder"/ && mv youtube/*.mp3 Songs/"$folder"/')
+                    mode = dwytsongs.download_trackspo
+                    #os.system("cd /youtube && spotdl %s" % link)
+                    #os.system('folder=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 youtube/*.mp3) && Songs/"$folder"/ && mv youtube/*.mp3 Songs/"$folder"/')
                 elif "deezer" in link:
-                    sendMessage(
-                        chat_id, "YouTube-download only for Spotify Links supported! Please pas a YouTube-link")
-                    #mode = dwytsongs.download_trackdee
+                    #sendMessage(
+                    #    chat_id, "YouTube-download only for Spotify Links supported! Please pas a YouTube-link")
+                    mode = dwytsongs.download_trackdee
 
-                #z = mode(
-                #    link,
-                #    recursive_download=True,
-                #    not_interface=not_interface
-                #)
+                z = mode(
+                    link,
+                    recursive_download=True,
+                    not_interface=not_interface
+                )
 
-                #youtube = True
+                youtube = True
             except:
                 sendMessage(
                     chat_id, "Sorry I cannot download this song %s :(" % link)
