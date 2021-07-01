@@ -393,9 +393,13 @@ def Link(link, chat_id, quality, message_id):
     try:
         if "track/" in link:
             if "spotify" in link:
+                print(link)
                 try:
                     url = spo.track(link)
+                    print(url)
                 except Exception as a:
+                    print("Da klappt was nicht mit der URL")
+                    print(url)
                     if not "The access token expired" in str(a):
                         sendMessage(
                             chat_id, "Invalid link %s ;)" % link,
