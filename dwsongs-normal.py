@@ -341,9 +341,6 @@ def track(link, chat_id, quality):
                 )
 
                 mode = downloa.download_trackdee
-            
-            elif "soundcloud" in link:
-                soundscrape(link)
 
             z = mode(
                 link,
@@ -362,7 +359,7 @@ def track(link, chat_id, quality):
                     #os.system("cd /youtube && spotdl %s" % link)
                     #os.system('folder=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 youtube/*.mp3) && Songs/"$folder"/ && mv youtube/*.mp3 Songs/"$folder"/')
                 elif "deezer" in link:
-                    #sendMessage(
+                    # sendMessage(
                     #    chat_id, "YouTube-download only for Spotify Links supported! Please pas a YouTube-link")
                     mode = dwytsongs.download_trackdee
 
@@ -780,7 +777,11 @@ def Link(link, chat_id, quality, message_id):
                 )
             else:
                 sendMessage(chat_id, not_supported_links % link)
-    
+
+        elif "soundcloud" in link:
+            print("Bin bei soundcloud!")
+            soundscrape(link)
+
         else:
             sendMessage(chat_id, not_supported_links % link)
 
