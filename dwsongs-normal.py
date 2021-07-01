@@ -395,10 +395,9 @@ def Link(link, chat_id, quality, message_id):
                 print(link)
                 try:
                     url = spo.track(link)
-                    print(url)
                 except Exception as a:
                     print("Da klappt was nicht mit der URL")
-                    print(url)
+                    
                     if not "The access token expired" in str(a):
                         sendMessage(
                             chat_id, "Invalid link %s ;)" % link,
@@ -413,6 +412,7 @@ def Link(link, chat_id, quality, message_id):
                     )
 
                     url = spo.track(link)
+                    print(url)
 
                 try:
                     image1 = url['album']['images'][0]['url']

@@ -16,14 +16,14 @@ from settings import (
 	ini_file, song_default_image
 )
 
-config = ConfigParser()
-config.read(ini_file)
+#config = ConfigParser()
+#config.read(ini_file)
 
-try:
-	ya_key = config['yandex']['key']
-except KeyError:
-	print("Something went wrong with configuration file")
-	exit()
+#try:
+#	ya_key = config['yandex']['key']
+#except KeyError:
+#	print("Something went wrong with configuration file")
+#	exit()
 
 def request(url):
 	try:
