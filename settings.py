@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from telegram import InlineKeyboardButton
+from configparser import ConfigParser
 
 not_interface = False
 default_time = 0.0
@@ -38,6 +39,16 @@ start_message = "Welcome to @%s \nPress '/' to get commands list" % bot_name
 not_supported_links = "Sorry :( The bot doesn't support this link %s :("
 rate_link = "https://t.me/BotsArchive/298"
 end_message = "FINISHED :) Rate me here %s" % rate_link
+
+config = ConfigParser()
+config.read(ini_file)
+
+try:
+    loc_dir = config['storing_rules']['output']
+except KeyError:
+    print("Something went wrong with configuration file")
+    exit()
+
 
 help_message = (
 	"/start: Start the bot" +
