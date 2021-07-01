@@ -48,6 +48,9 @@ try:
     donation_link = config['bot_info']['donation']
     group_link = config['bot_info']['group']
     server_mode = config['download_mode']['server_mode']
+    plexnaming = config['storing_rules']['plexnaming']
+    humannaming = config['storing_rules']['humannaming']
+    loc_dir = config['storing_rules']['output']
 except KeyError:
     print("Something went wrong with configuration file")
     exit()
