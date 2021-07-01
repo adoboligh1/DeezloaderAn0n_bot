@@ -80,9 +80,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
-spo = Spotify(
-    generate_token()
-)
+spo = generate_token()
 
 
 def reque(url, chat_id=None, control=False):
@@ -311,9 +309,7 @@ def track(link, chat_id, quality):
                 try:
                     url = spo.track(link)
                 except:
-                    spo = Spotify(
-                        generate_token()
-                    )
+                    spo = generate_token()
 
                     url = spo.track(link)
 
@@ -395,9 +391,10 @@ def Link(link, chat_id, quality, message_id):
                 print(link)
                 try:
                     url = spo.track(link)
+                    print(url)
                 except Exception as a:
                     print("Da klappt was nicht mit der URL")
-                    
+
                     if not "The access token expired" in str(a):
                         sendMessage(
                             chat_id, "Invalid link %s ;)" % link,
@@ -407,9 +404,7 @@ def Link(link, chat_id, quality, message_id):
                         delete(chat_id)
                         return
 
-                    spo = Spotify(
-                        generate_token()
-                    )
+                    spo = generate_token()
 
                     url = spo.track(link)
                     print(url)
@@ -481,9 +476,7 @@ def Link(link, chat_id, quality, message_id):
                         delete(chat_id)
                         return
 
-                    spo = Spotify(
-                        generate_token()
-                    )
+                    spo = generate_token()
 
                     tracks = spo.album(link)
 
@@ -515,9 +508,7 @@ def Link(link, chat_id, quality, message_id):
                     try:
                         tracks = spo.next(tracks)
                     except:
-                        spo = Spotify(
-                            generate_token()
-                        )
+                        spo = generate_token()
 
                         tracks = spo.next(tracks)
 
@@ -630,9 +621,7 @@ def Link(link, chat_id, quality, message_id):
                         delete(chat_id)
                         return
 
-                    spo = Spotify(
-                        generate_token()
-                    )
+                    spo = generate_token()
 
                     tracks = spo.user_playlist(musi[-3], musi[-1])
 
@@ -661,9 +650,7 @@ def Link(link, chat_id, quality, message_id):
                     try:
                         tracks = spo.next(tracks)
                     except:
-                        spo = Spotify(
-                            generate_token()
-                        )
+                        spo = generate_token()
 
                         tracks = spo.next(tracks)
 
@@ -900,9 +887,7 @@ def Audio(audio, chat_id):
             try:
                 url = spo.track(ids)
             except:
-                spo = Spotify(
-                    generate_token()
-                )
+                spo = generate_token()
 
                 url = spo.track(ids)
 
