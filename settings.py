@@ -12,7 +12,7 @@ max_songs = 400
 telegram_file_api_limit = 1500000000
 telegram_audio_api_limit = 50000000
 db_file = "dwsongs.db"
-loc_dir = "/songs"
+#loc_dir = "/songs"
 ini_file = "/data/settings.ini"
 photo = "example.png"
 bot_name = "DeezloaderAn0n_bot"
@@ -46,7 +46,7 @@ config.read(ini_file)
 try:
     loc_dir = config['storing_rules']['output']
 except KeyError:
-    print("Something went wrong with configuration file")
+    print("Something went wrong with configuration file, settings.py")
     exit()
 
 
