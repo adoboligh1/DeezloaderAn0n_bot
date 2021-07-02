@@ -162,8 +162,8 @@ def initialize():
 	conn.close()
 
 def generate_token():
-    os.environ["SPOTIPY_CLIENT_ID"] = "cabb647ac3ec4be9b7559a99316b9840"
-    os.environ["SPOTIPY_CLIENT_SECRET"] = "3053bab776584567a3d6fdd54bfa1f97"
+    os.environ["SPOTIPY_CLIENT_ID"] = "c6b23f1e91f84b6a9361de16aba0ae17"
+    os.environ["SPOTIPY_CLIENT_SECRET"] = "237e355acaa24636abc79f1a089e6204"
     return spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 def fast_split(thing):
