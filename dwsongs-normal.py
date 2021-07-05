@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import platform
 import logging
 import dwytsongs
 import soundscrape
@@ -390,9 +391,10 @@ def Link(link, chat_id, quality, message_id):
         if "track/" in link:
             if "spotify" in link:
                 try:
-                    print(spo)
+                    #print(spo)
                     print(link)
                     url = spo.track(link)
+                    #print(url)
                     print(spo)
                 except Exception as a:
                     if not "The access token expired" in str(a):
@@ -793,6 +795,7 @@ def Link(link, chat_id, quality, message_id):
             chat_id, "Try to search it throught inline mode or search the link on Deezer")
 
     except Exception as a:
+        print(a)
         logging.error(a)
         logging.error(quality)
         logging.error(link)
@@ -1651,8 +1654,17 @@ try:
 
     while True:
         sleep(1)
-        path = os.statvfs("/")
-        free_space = path.f_bavail * path.f_frsize
+        if platform.system() == 'Linux':
+            path = os.statvfs("/")
+            free_space = path.f_bavail * path.f_frsize
+        elif platform.system() == 'Windows':
+            path = "c:\\"
+            free_space = 1000000
+        else:
+            path = os.statvfs("/")
+            free_space = path.f_bavail * path.f_frsize
+
+        
 
         if (del1 <= del2 and is_audio == 0) or free_space <= limit:
             del1 = 0
