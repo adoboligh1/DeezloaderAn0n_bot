@@ -769,7 +769,7 @@ def Link(link, chat_id, quality, message_id):
 
         elif "soundcloud" in link:
             print("Bin bei soundcloud!")
-            soundscrape(link)
+            os.system("soundscrape link")
 
         else:
             sendMessage(chat_id, not_supported_links % link)
