@@ -16,7 +16,8 @@ from mutagen.flac import FLAC
 from acrcloud import ACRcloud
 from mutagen.easyid3 import EasyID3
 from configparser import ConfigParser
-from deezloader.utils import what_kind
+from deezloader.utils import *
+#what_kind
 from deezloader import Login, exceptions
 from mutagen.id3._util import ID3NoHeaderError
 
@@ -391,11 +392,7 @@ def Link(link, chat_id, quality, message_id):
         if "track/" in link:
             if "spotify" in link:
                 try:
-                    #print(spo)
-                    print(link)
                     url = spo.track(link)
-                    #print(url)
-                    print(spo)
                 except Exception as a:
                     if not "The access token expired" in str(a):
                         sendMessage(
@@ -1663,8 +1660,6 @@ try:
         else:
             path = os.statvfs("/")
             free_space = path.f_bavail * path.f_frsize
-
-        
 
         if (del1 <= del2 and is_audio == 0) or free_space <= limit:
             del1 = 0

@@ -169,11 +169,11 @@ def initialize():
     conn.commit()
     conn.close()
 
-def generate_token():
-	return oauth2.SpotifyClientCredentials(
-		client_id = "c6b23f1e91f84b6a9361de16aba0ae17",
-		client_secret = "237e355acaa24636abc79f1a089e6204"
-	).get_access_token(as_dict = False)
+#def generate_token():
+	#return oauth2.SpotifyClientCredentials(
+	#	client_id = "c6b23f1e91f84b6a9361de16aba0ae17",
+	#	client_secret = "237e355acaa24636abc79f1a089e6204"
+	#).get_access_token(as_dict = False)
 
 #def generate_token():
 #    os.environ["SPOTIPY_CLIENT_ID"] = "c6b23f1e91f84b6a9361de16aba0ae17"
