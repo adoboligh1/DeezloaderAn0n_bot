@@ -41,9 +41,9 @@ not_supported_links = "Sorry :( The bot doesn't support this link %s :("
 rate_link = "https://t.me/BotsArchive/298"
 end_message = "FINISHED :) Rate me here %s" % rate_link
 
-DOCKERFLAG = os.environ.get('SERVER_MODE', False)
+SECRET_KEY = os.environ.get('AM_I_IN_A_DOCKER_CONTAINER', False)
 if platform.system() == 'Linux':
-	if DOCKERFLAG:
+	if SECRET_KEY:
 		ini_file = "/data/settings.ini"
 	else:
 		ini_file = "settings.ini"
