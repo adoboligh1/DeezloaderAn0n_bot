@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
+import os
+import platform
 from telegram import InlineKeyboardButton
 from configparser import ConfigParser
-
 not_interface = False
 default_time = 0.0
 roots = [560950095]
@@ -13,7 +14,7 @@ telegram_file_api_limit = 1500000000
 telegram_audio_api_limit = 50000000
 db_file = "dwsongs.db"
 #loc_dir = "/songs"
-ini_file = "/data/settings.ini"
+#ini_file = "/data/settings.ini"
 photo = "example.png"
 bot_name = "DeezloaderAn0n_bot"
 api_chart = "https://api.deezer.com/chart"
@@ -39,6 +40,17 @@ start_message = "Welcome to @%s \nPress '/' to get commands list" % bot_name
 not_supported_links = "Sorry :( The bot doesn't support this link %s :("
 rate_link = "https://t.me/BotsArchive/298"
 end_message = "FINISHED :) Rate me here %s" % rate_link
+
+DOCKERFLAG = os.environ.get('SERVER_MODE', False)
+if platform.system() == 'Linux':
+	if DOCKERFLAG:
+		ini_file = "/data/settings.ini"
+	else:
+		ini_file = "settings.ini"
+elif platform.system() == 'Windows':
+	ini_file = "settings.ini"
+else:
+	ini_file = "settings.ini"
 
 config = ConfigParser()
 config.read(ini_file)
