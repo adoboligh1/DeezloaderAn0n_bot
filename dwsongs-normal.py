@@ -54,7 +54,7 @@ try:
     plexnaming = config['storing_rules']['plexnaming']
     humannaming = config['storing_rules']['humannaming']
 except KeyError:
-    print("Something went wrong with configuration file dwsongs")
+    print("Bot dwsongs: Something went wrong with configuration file")
     print(ini_file)
     exit()
 

@@ -58,7 +58,7 @@ config.read(ini_file)
 try:
     loc_dir = config['storing_rules']['output']
 except KeyError:
-    print("Something went wrong with configuration file, settings.py")
+    print("Bot settings: Something went wrong with configuration file")
     exit()
 
 

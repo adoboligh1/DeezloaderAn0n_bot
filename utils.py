@@ -21,7 +21,7 @@ config.read(ini_file)
 try:
     ya_key = config['yandex']['key']
 except KeyError:
-    print("Something went wrong with configuration file")
+    print("Bot utils: Something went wrong with configuration file")
     exit()
 
 
